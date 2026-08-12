@@ -1,9 +1,11 @@
 using FluentValidation;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using RoomService.Application.Behaviors;
 using RoomService.Application.Features.Rooms.Commands;
 using RoomService.Application.Interface;
+using RoomService.Application.Interfaces;
 using RoomService.Application.Mapping;
 using RoomService.Infrastructure.Data;
 using RoomService.Infrastructure.Repository.Rooms;
@@ -43,11 +45,17 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(
         builder.Configuration.GetConnectionString("DefaultConnection")));
 
+// Dapper
+builder.Services.AddScoped<IDbConnection>(options =>
+    new SqlConnection(
+        builder.Configuration.GetConnectionString("DefaultConnection")));
+
 // Unit of Work
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 // Repositories
 builder.Services.AddScoped<IRoomCommandRepository, RoomCommandRepository>();
+builder.Services.AddScoped<IRoomQueryRepository, RoomQueryRepository>();
 
 
 builder.Services.AddControllers();
