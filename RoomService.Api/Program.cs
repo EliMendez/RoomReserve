@@ -1,13 +1,54 @@
+using FluentValidation;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using RoomService.Application.Behaviors;
+using RoomService.Application.Features.Rooms.Commands;
+using RoomService.Application.Interface;
+using RoomService.Application.Mapping;
 using RoomService.Infrastructure.Data;
+using RoomService.Infrastructure.Repository.Rooms;
 using System;
+using System.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+// ============================
+// Application
+// ============================
+
+builder.Services.AddMediatR(cfg =>
+{
+    cfg.RegisterServicesFromAssembly(
+        typeof(CreateRoomCommand).Assembly);
+
+    cfg.AddOpenBehavior(
+        typeof(ValidationBehavior<,>));
+});
+
+builder.Services.AddValidatorsFromAssembly(
+    typeof(CreateRoomCommand).Assembly);
+
+builder.Services.AddAutoMapper(
+    cfg => { },
+    typeof(RoomProfile).Assembly);
+
+// ============================
+// Infrastructure
+// ============================
+
+// EF Core
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
-);
+    options.UseSqlServer(
+        builder.Configuration.GetConnectionString("DefaultConnection")));
+
+// Unit of Work
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+// Repositories
+builder.Services.AddScoped<IRoomCommandRepository, RoomCommandRepository>();
+
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
