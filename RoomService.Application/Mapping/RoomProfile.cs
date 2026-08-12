@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using RoomService.Application.Features.Rooms.Commands;
+using RoomService.Application.Features.Rooms.CreateRoom;
 using RoomService.Domain.Entities;
 using System;
 using System.Collections.Generic;

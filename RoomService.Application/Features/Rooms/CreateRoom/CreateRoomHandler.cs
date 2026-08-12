@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RoomService.Application.Features.Rooms.Commands
+namespace RoomService.Application.Features.Rooms.CreateRoom
 {
     public class CreateRoomHandler : IRequestHandler<CreateRoomCommand, int>
     {

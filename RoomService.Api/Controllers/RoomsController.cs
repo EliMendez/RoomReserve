@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RoomService.Application.Dto;
-using RoomService.Application.Features.Rooms.Commands;
+using RoomService.Application.Features.Rooms.CreateRoom;
 using RoomService.Application.Features.Rooms.GetActiveRooms;
 using RoomService.Application.Features.Rooms.GetRoomById;
 using RoomService.Domain.Entities;

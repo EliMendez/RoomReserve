@@ -6,7 +6,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RoomService.Application.Features.Rooms.Commands
+namespace RoomService.Application.Features.Rooms.CreateRoom
 {
     public record CreateRoomCommand
     (

@@ -3,7 +3,7 @@ using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using RoomService.Application.Behaviors;
-using RoomService.Application.Features.Rooms.Commands;
+using RoomService.Application.Features.Rooms.CreateRoom;
 using RoomService.Application.Interface;
 using RoomService.Application.Interfaces;
 using RoomService.Application.Mapping;
