@@ -9,7 +9,9 @@ namespace RoomService.Application.Interface
 {
     public interface IRoomCommandRepository
     {
-        Task<bool> ExistsByName(string name);
+        Task<bool> ExistsByName(string name, int? roomId = null);
+        Task<Room?> GetByIdAsync(int roomId);
         Task AddAsync(Room room);
+        Task Update(Room room);
     }
 }

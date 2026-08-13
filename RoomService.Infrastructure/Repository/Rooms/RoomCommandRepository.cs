@@ -19,16 +19,31 @@ namespace RoomService.Infrastructure.Repository.Rooms
             _context = context;   
         }
 
-        public async Task<bool> ExistsByName(string name)
+        public async Task<bool> ExistsByName(string name, int? roomId = null)
         {
             name = name.Trim();
-            return await _context.Rooms.AnyAsync(r => r.Name == name);
+
+            return await _context.Rooms.AnyAsync(
+                r => r.Name == name && 
+                (roomId == null || r.RoomId != roomId)
+            );
+        }
+
+        public async Task<Room?> GetByIdAsync(int roomId)
+        {
+            return await _context.Rooms.FirstOrDefaultAsync(r => r.RoomId == roomId);
         }
 
         public async Task AddAsync(Room room)
         {
             room.Status = RoomStatus.ACTIVE.ToString();
             await _context.Rooms.AddAsync(room);
+        }
+
+        public Task Update(Room room)
+        {
+            _context.Rooms.Update(room);
+            return Task.CompletedTask;
         }
     }
 }

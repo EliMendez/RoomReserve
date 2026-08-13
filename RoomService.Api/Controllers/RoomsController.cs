@@ -5,6 +5,7 @@ using RoomService.Application.Dto;
 using RoomService.Application.Features.Rooms.CreateRoom;
 using RoomService.Application.Features.Rooms.GetActiveRooms;
 using RoomService.Application.Features.Rooms.GetRoomById;
+using RoomService.Application.Features.Rooms.UpdateRoom;
 using RoomService.Domain.Entities;
 using System.Xml.Linq;
 
@@ -27,7 +28,7 @@ namespace RoomService.Api.Controllers
             return Ok(rooms);
         }
 
-        [HttpGet("{roomId}")]
+        [HttpGet("{roomId:int}")]
         public async Task<ActionResult<RoomDto>> GetRoom(int roomId)
         {
             var room = await _mediator.Send(new GetRoomByIdQuery(roomId));
@@ -49,6 +50,21 @@ namespace RoomService.Api.Controllers
 
             var roomId = await _mediator.Send(createRoomCommand);
             return Ok(roomId);
+        }
+
+        [HttpPut("{roomId:int}")]
+        public async Task<IActionResult> UpdateRoom(int roomId, [FromBody] UpdateRoomDto roomDto)
+        {
+            UpdateRoomCommand updateRoomCommand = new UpdateRoomCommand(
+                RoomId: roomId,
+                Name: roomDto.Name,
+                Description: roomDto.Description,
+                Capacity: roomDto.Capacity,
+                PricePerHour: roomDto.PricePerHour
+            );
+
+            await _mediator.Send(updateRoomCommand);
+            return NoContent();
         }
     }
 }
