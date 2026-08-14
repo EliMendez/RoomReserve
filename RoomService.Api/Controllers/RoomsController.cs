@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RoomService.Application.Dto;
+using RoomService.Application.Features.Rooms.ChangeStatusRoom;
 using RoomService.Application.Features.Rooms.CreateRoom;
 using RoomService.Application.Features.Rooms.GetActiveRooms;
 using RoomService.Application.Features.Rooms.GetRoomById;
@@ -41,21 +42,21 @@ namespace RoomService.Api.Controllers
         [HttpPost]
         public async Task<ActionResult<int>> CreateRoom([FromBody] CreateRoomDto roomDto)
         {
-            CreateRoomCommand createRoomCommand = new CreateRoomCommand(
+            var command = new CreateRoomCommand(
                 Name: roomDto.Name,
                 Description: roomDto.Description,
                 Capacity: roomDto.Capacity,
                 PricePerHour: roomDto.PricePerHour
             );
 
-            var roomId = await _mediator.Send(createRoomCommand);
+            var roomId = await _mediator.Send(command);
             return Ok(roomId);
         }
 
         [HttpPut("{roomId:int}")]
         public async Task<IActionResult> UpdateRoom(int roomId, [FromBody] UpdateRoomDto roomDto)
         {
-            UpdateRoomCommand updateRoomCommand = new UpdateRoomCommand(
+            var command = new UpdateRoomCommand(
                 RoomId: roomId,
                 Name: roomDto.Name,
                 Description: roomDto.Description,
@@ -63,7 +64,14 @@ namespace RoomService.Api.Controllers
                 PricePerHour: roomDto.PricePerHour
             );
 
-            await _mediator.Send(updateRoomCommand);
+            await _mediator.Send(command);
+            return NoContent();
+        }
+
+        [HttpPatch("{roomId:int}/status")]
+        public async Task<IActionResult> ChangeStatusRoom(int roomId)
+        {
+            await _mediator.Send(new ChangeStatusRoomCommand(roomId));
             return NoContent();
         }
     }

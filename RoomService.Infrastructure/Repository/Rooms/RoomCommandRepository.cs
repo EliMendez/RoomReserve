@@ -40,10 +40,9 @@ namespace RoomService.Infrastructure.Repository.Rooms
             await _context.Rooms.AddAsync(room);
         }
 
-        public Task Update(Room room)
+        public void Update(Room room)
         {
             _context.Rooms.Update(room);
-            return Task.CompletedTask;
         }
     }
 }

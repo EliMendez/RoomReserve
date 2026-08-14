@@ -12,6 +12,6 @@ namespace RoomService.Application.Interface
         Task<bool> ExistsByName(string name, int? roomId = null);
         Task<Room?> GetByIdAsync(int roomId);
         Task AddAsync(Room room);
-        Task Update(Room room);
+        void Update(Room room);
     }
 }
