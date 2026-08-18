@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using RoomService.Application.Dto.Rooms;
 using RoomService.Application.Features.Rooms.GetActiveRooms;
-using RoomService.Application.Interfaces;
+using RoomService.Application.Interfaces.Rooms;
 using System;
 using System.Collections.Generic;
 using System.Linq;

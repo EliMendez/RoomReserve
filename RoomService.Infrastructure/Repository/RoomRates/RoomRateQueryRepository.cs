@@ -1,6 +1,6 @@
 ﻿using Dapper;
 using RoomService.Application.Dto.RoomRates;
-using RoomService.Application.Interfaces;
+using RoomService.Application.Interfaces.RoomRates;
 using System;
 using System.Collections.Generic;
 using System.Data;

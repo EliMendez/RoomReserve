@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using RoomService.Application.Interface;
+using RoomService.Application.Interfaces.RoomRates;
 using RoomService.Domain.Entities;
 using RoomService.Domain.Enums;
 using RoomService.Infrastructure.Data;

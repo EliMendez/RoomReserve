@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RoomService.Application.Interfaces
+namespace RoomService.Application.Interfaces.Rooms
 {
     public interface IRoomQueryRepository
     {

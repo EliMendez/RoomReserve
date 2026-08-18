@@ -1,7 +1,8 @@
 ﻿using AutoMapper;
 using MediatR;
 using RoomService.Application.Dto.RoomRates;
-using RoomService.Application.Interfaces;
+using RoomService.Application.Interfaces.RoomRates;
+using RoomService.Application.Interfaces.Rooms;
 using System;
 using System.Collections.Generic;
 using System.Linq;
