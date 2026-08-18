@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RoomService.Infrastructure.Repository.Rooms
+namespace RoomService.Infrastructure.Repository.RoomRates
 {
     public class RoomRateCommandRepository : IRoomRateCommandRepository
     {
@@ -27,7 +27,8 @@ namespace RoomService.Infrastructure.Repository.Rooms
             int roomId,
             TimeOnly startTime,
             TimeOnly endTime
-        ) {
+        )
+        {
             return await _context.RoomRates.AnyAsync(r =>
                 r.RoomId == roomId &&
                 startTime < r.EndTime &&

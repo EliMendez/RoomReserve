@@ -1,5 +1,5 @@
 ﻿using MediatR;
-using RoomService.Application.Dto;
+using RoomService.Application.Dto.Rooms;
 using RoomService.Application.Features.Rooms.GetActiveRooms;
 using RoomService.Application.Interfaces;
 using System;

@@ -1,11 +1,7 @@
 ﻿using AutoMapper;
 using MediatR;
 using RoomService.Application.Dto.RoomRates;
-using RoomService.Application.Features.RoomRates.GetRoomRates;
-using RoomService.Application.Features.Rooms.CreateRoom;
-using RoomService.Application.Interface;
 using RoomService.Application.Interfaces;
-using RoomService.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;

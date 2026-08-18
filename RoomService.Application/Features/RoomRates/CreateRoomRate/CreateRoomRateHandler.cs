@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using MediatR;
-using RoomService.Application.Features.Rooms.CreateRoom;
 using RoomService.Application.Interface;
 using RoomService.Domain.Entities;
 using System;

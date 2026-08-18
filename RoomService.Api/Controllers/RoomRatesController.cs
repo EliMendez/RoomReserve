@@ -1,11 +1,8 @@
 ﻿using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RoomService.Application.Dto.RoomRates;
 using RoomService.Application.Features.RoomRates.CreateRoomRate;
 using RoomService.Application.Features.RoomRates.GetRoomRates;
-using RoomService.Domain.Entities;
-using System.Xml.Linq;
 
 namespace RoomService.Api.Controllers
 {

@@ -1,18 +1,15 @@
 ﻿using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using RoomService.Application.Dto;
+using RoomService.Application.Dto.Rooms;
 using RoomService.Application.Features.Rooms.ChangeStatusRoom;
 using RoomService.Application.Features.Rooms.CreateRoom;
 using RoomService.Application.Features.Rooms.GetActiveRooms;
 using RoomService.Application.Features.Rooms.GetRoomById;
 using RoomService.Application.Features.Rooms.UpdateRoom;
-using RoomService.Domain.Entities;
-using System.Xml.Linq;
 
 namespace RoomService.Api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/rooms")]
     [ApiController]
     public class RoomsController : ControllerBase
     {
@@ -50,7 +47,11 @@ namespace RoomService.Api.Controllers
             );
 
             var roomId = await _mediator.Send(command);
-            return Ok(roomId);
+            return CreatedAtAction(
+                nameof(GetRoom),
+                new { roomId },
+                roomId
+            );
         }
 
         [HttpPut("{roomId:int}")]

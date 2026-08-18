@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RoomService.Infrastructure.Repository.Rooms
+namespace RoomService.Infrastructure.Repository.RoomRates
 {
     public class RoomRateQueryRepository : IRoomRateQueryRepository
     {

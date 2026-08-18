@@ -1,5 +1,4 @@
 ﻿using FluentValidation;
-using RoomService.Application.Features.RoomRates.GetRoomRates;
 using System;
 using System.Collections.Generic;
 using System.Linq;

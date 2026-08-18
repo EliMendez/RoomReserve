@@ -1,5 +1,5 @@
 ﻿using Dapper;
-using RoomService.Application.Dto;
+using RoomService.Application.Dto.Rooms;
 using RoomService.Application.Interfaces;
 using System;
 using System.Collections.Generic;

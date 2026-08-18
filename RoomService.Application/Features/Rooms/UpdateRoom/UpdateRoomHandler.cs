@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
 using RoomService.Application.Interface;
-using RoomService.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;

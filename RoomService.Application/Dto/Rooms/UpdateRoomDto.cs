@@ -4,15 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RoomService.Application.Dto
+namespace RoomService.Application.Dto.Rooms
 {
-    public record RoomDto
+    public record UpdateRoomDto
     (
         int RoomId,
         string Name,
         string Description,
         int Capacity,
-        decimal PricePerHour,
-        string Status
+        decimal PricePerHour
     );
 }

@@ -1,5 +1,5 @@
 ﻿using MediatR;
-using RoomService.Application.Dto;
+using RoomService.Application.Dto.Rooms;
 using System;
 using System.Collections.Generic;
 using System.Linq;

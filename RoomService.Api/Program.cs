@@ -1,15 +1,14 @@
 using FluentValidation;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 using RoomService.Application.Behaviors;
 using RoomService.Application.Features.Rooms.CreateRoom;
 using RoomService.Application.Interface;
 using RoomService.Application.Interfaces;
 using RoomService.Application.Mapping;
 using RoomService.Infrastructure.Data;
+using RoomService.Infrastructure.Repository.RoomRates;
 using RoomService.Infrastructure.Repository.Rooms;
-using System;
 using System.Data;
 
 var builder = WebApplication.CreateBuilder(args);

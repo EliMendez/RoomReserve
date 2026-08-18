@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RoomService.Application.Dto
+namespace RoomService.Application.Dto.Rooms
 {
-    public record UpdateRoomDto
+    public record CreateRoomDto
     (
-        int RoomId,
         string Name,
         string Description,
         int Capacity,
