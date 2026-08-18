@@ -55,5 +55,21 @@ namespace RoomService.Infrastructure.Repository.Rooms
 
             return await _connection.QueryFirstOrDefaultAsync<RoomDto>(sql, new { RoomId = roomId});
         }
+
+        public async Task<bool> ExistsById(int roomId)
+        {
+            const string sql = """
+                SELECT TOP 1 1
+                FROM Rooms
+                WHERE RoomId = @RoomId;
+                """;
+
+            var result = await _connection.ExecuteScalarAsync<int?>(
+                sql,
+                new { RoomId = roomId }
+            );
+
+            return result.HasValue;
+        }
     }
 }

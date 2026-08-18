@@ -57,6 +57,7 @@ builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IRoomCommandRepository, RoomCommandRepository>();
 builder.Services.AddScoped<IRoomQueryRepository, RoomQueryRepository>();
 builder.Services.AddScoped<IRoomRateCommandRepository, RoomRateCommandRepository>();
+builder.Services.AddScoped<IRoomRateQueryRepository, RoomRateQueryRepository>();
 
 
 builder.Services.AddControllers();

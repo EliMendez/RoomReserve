@@ -11,5 +11,6 @@ namespace RoomService.Application.Interfaces
     {
         Task<IEnumerable<RoomDto>> GetActiveRoomsAsync();
         Task<RoomDto?> GetByIdAsync(int roomId);
+        Task<bool> ExistsById(int roomId);
     }
 }

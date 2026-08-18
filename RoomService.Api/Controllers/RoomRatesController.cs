@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RoomService.Application.Dto.RoomRates;
 using RoomService.Application.Features.RoomRates.CreateRoomRate;
+using RoomService.Application.Features.RoomRates.GetRoomRates;
 using RoomService.Domain.Entities;
 using System.Xml.Linq;
 
@@ -16,6 +17,13 @@ namespace RoomService.Api.Controllers
         public RoomRatesController(IMediator mediator)
         {
             _mediator = mediator;
+        }
+
+        [HttpGet("{roomId:int}/rates")]
+        public async Task<ActionResult<IEnumerable<RoomRateDto>>> GetRoomRates(int roomId)
+        {
+            var roomRates = await _mediator.Send(new GetRoomRatesQuery(roomId));
+            return Ok(roomRates);
         }
 
         [HttpPost("{roomId:int}/rates")]
