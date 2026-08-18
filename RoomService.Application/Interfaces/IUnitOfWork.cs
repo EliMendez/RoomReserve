@@ -9,6 +9,7 @@ namespace RoomService.Application.Interface
     public interface IUnitOfWork
     {
         IRoomCommandRepository Rooms { get; }
+        IRoomRateCommandRepository RoomRates { get; }
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
     }
 }

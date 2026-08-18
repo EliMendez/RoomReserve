@@ -29,6 +29,13 @@ namespace RoomService.Infrastructure.Repository.Rooms
             );
         }
 
+        public async Task<bool> ExistsById(int roomId)
+        {
+            return await _context.Rooms.AnyAsync(
+                r => r.RoomId != roomId
+            );
+        }
+
         public async Task<Room?> GetByIdAsync(int roomId)
         {
             return await _context.Rooms.FirstOrDefaultAsync(r => r.RoomId == roomId);

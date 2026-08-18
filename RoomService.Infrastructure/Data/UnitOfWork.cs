@@ -11,11 +11,16 @@ namespace RoomService.Infrastructure.Data
     {
         private readonly AppDbContext _context;
         public IRoomCommandRepository Rooms {  get; }
+        public IRoomRateCommandRepository RoomRates { get; }
 
-        public UnitOfWork( AppDbContext context, IRoomCommandRepository roomRepository)
-        {
+        public UnitOfWork(
+            AppDbContext context, 
+            IRoomCommandRepository roomRepository,
+            IRoomRateCommandRepository roomRateRepository
+        ) {
             _context = context;
             Rooms = roomRepository;
+            RoomRates = roomRateRepository;
         }
 
         public async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)

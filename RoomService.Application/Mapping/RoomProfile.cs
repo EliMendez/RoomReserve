@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using RoomService.Application.Features.RoomRates.CreateRoomRate;
 using RoomService.Application.Features.Rooms.CreateRoom;
 using RoomService.Domain.Entities;
 using System;
@@ -14,6 +15,7 @@ namespace RoomService.Application.Mapping
         public RoomProfile()
         {
             CreateMap<CreateRoomCommand, Room>();
+            CreateMap<CreateRoomRateCommand, RoomRate>();
         }
     }
 }

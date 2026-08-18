@@ -14,5 +14,7 @@ namespace RoomService.Domain.Entities
         public int Capacity { get; set; }
         public decimal PricePerHour { get; set; }
         public string Status { get; set; } = string.Empty;
+
+        public ICollection<RoomRate> RoomRates { get; set; }
     }
 }

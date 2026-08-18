@@ -15,6 +15,7 @@ namespace RoomService.Infrastructure.Data
         }
 
         public DbSet<Room> Rooms { get; set; }
+        public DbSet<RoomRate> RoomRates { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -41,6 +42,24 @@ namespace RoomService.Infrastructure.Data
                 entity.Property(e => e.Status)
                     .IsRequired()
                     .HasMaxLength(20);
+            });
+
+            modelBuilder.Entity<RoomRate>(entity =>
+            {
+                entity.HasKey(e => e.RoomRateId);
+
+                entity.HasOne(e => e.Room)
+                    .WithMany(e => e.RoomRates)
+                    .HasForeignKey(e => e.RoomId);
+
+                entity.Property(e => e.StartTime)
+                    .IsRequired();
+
+                entity.Property(e => e.EndTime)
+                    .IsRequired();
+
+                entity.Property(e => e.PricePerHour)
+                  .HasColumnType("decimal(18,2)");
             });
         }
     }
