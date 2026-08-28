@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RoomService.Domain.Enums
+namespace BookingService.Domain.Enums
 {
-    public enum ReservationStatus
+    public enum BookingStatus
     {
         PENDING,
         CONFIRMED,

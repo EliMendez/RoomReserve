@@ -1,0 +1,34 @@
+﻿using BookingService.Application.Dto.Bookings;
+using BookingService.Application.Features.Bookings.CreateBooking;
+using MediatR;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+
+namespace BookingService.Api.Controllers
+{
+    [Route("api/bookings")]
+    [ApiController]
+    public class BookingsController : ControllerBase
+    {
+        private readonly IMediator _mediator;
+        public BookingsController(IMediator mediator) 
+        { 
+            _mediator = mediator;
+        }
+
+        [HttpPost]
+        public async Task<ActionResult<int>> CreateBooking([FromBody] CreateBookingDto bookingDto)
+        {
+            var command = new CreateBookingCommand(
+                RoomId: bookingDto.RoomId,
+                BookingDate: bookingDto.BookingDate,
+                StartTime: bookingDto.StartTime,
+                EndTime: bookingDto.EndTime,
+                NumberOfAttendees: bookingDto.NumberOfAttendees
+            );
+
+            var bookingId = await _mediator.Send(command);
+            return Ok(bookingId);
+        }
+    }
+}

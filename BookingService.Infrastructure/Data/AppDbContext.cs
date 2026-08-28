@@ -38,6 +38,19 @@ namespace BookingService.Infrastructure.Data
 
                 entity.Property(b => b.NumberOfAttendees)
                     .IsRequired();
+
+                entity.Property(b => b.Duration)
+                  .HasColumnType("decimal(18,2)");
+
+                entity.Property(b => b.Subtotal)
+                  .HasColumnType("decimal(18,2)");
+
+                entity.Property(b => b.Total)
+                  .HasColumnType("decimal(18,2)");
+
+                entity.Property(b => b.Status)
+                    .HasMaxLength(10)
+                    .IsRequired();
             });
         }
     }

@@ -6,6 +6,7 @@ using RoomService.Application.Features.Rooms.CreateRoom;
 using RoomService.Application.Features.Rooms.GetActiveRooms;
 using RoomService.Application.Features.Rooms.GetRoomById;
 using RoomService.Application.Features.Rooms.UpdateRoom;
+using RoomService.Domain.Enums;
 
 namespace RoomService.Api.Controllers
 {

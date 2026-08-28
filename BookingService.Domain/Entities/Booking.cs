@@ -14,5 +14,9 @@ namespace BookingService.Domain.Entities
         public TimeOnly StartTime { get; set; }
         public TimeOnly EndTime { get; set; }
         public int NumberOfAttendees { get; set; }
+        public decimal Duration { get; set; }
+        public decimal Subtotal { get; set; }
+        public decimal Total { get; set; }
+        public string Status { get; set; } = string.Empty;
     }
 }
