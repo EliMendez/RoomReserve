@@ -1,4 +1,5 @@
 ﻿using BookingService.Application.Dto.Bookings;
+using BookingService.Application.Features.Bookings.CancelBooking;
 using BookingService.Application.Features.Bookings.CreateBooking;
 using MediatR;
 using Microsoft.AspNetCore.Http;
@@ -29,6 +30,13 @@ namespace BookingService.Api.Controllers
 
             var bookingId = await _mediator.Send(command);
             return Ok(bookingId);
+        }
+
+        [HttpPatch("{bookingId:int}/cancel")]
+        public async Task<IActionResult> CancelBooking(int bookingId)
+        {
+            await _mediator.Send(new CancelBookingCommand(bookingId));
+            return NoContent();
         }
     }
 }
