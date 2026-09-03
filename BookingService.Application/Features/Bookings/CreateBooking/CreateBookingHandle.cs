@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using BookingService.Application.Interfaces;
+using BookingService.Application.Interfaces.ServiceClient;
 using BookingService.Domain.Entities;
 using BookingService.Domain.Enums;
 using MediatR;

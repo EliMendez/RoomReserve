@@ -6,12 +6,10 @@ using System.Threading.Tasks;
 
 namespace BookingService.Application.Dto.Rooms
 {
-    public record RoomDto
+    public record AvailableRoomDto
     (
         int RoomId,
         string Name,
-        int Capacity,
-        decimal PricePerHour,
-        string Status
+        int Capacity
     );
 }

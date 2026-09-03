@@ -1,0 +1,14 @@
+﻿using BookingService.Domain.Entities;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace BookingService.Application.Interfaces.Repository
+{
+    public interface IBookingQueryRepository
+    {
+        Task<IEnumerable<int>> GetUnavailabilityAsync(DateOnly date, TimeOnly startTime, TimeOnly endTime);
+    }
+}

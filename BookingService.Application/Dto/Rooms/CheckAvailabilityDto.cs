@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace BookingService.Application.Dto.Rooms
 {
-    public record RoomDto
+    public record CheckAvailabilityDto
     (
-        int RoomId,
-        string Name,
-        int Capacity,
-        decimal PricePerHour,
-        string Status
+        DateOnly Date,
+        TimeOnly StartTime,
+        TimeOnly EndTime,
+        int Attendees
     );
 }

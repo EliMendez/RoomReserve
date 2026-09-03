@@ -1,5 +1,4 @@
-﻿using BookingService.Application.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http.Json;
@@ -7,6 +6,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using BookingService.Application.Dto.Rooms;
+using BookingService.Application.Interfaces.ServiceClient;
 
 namespace BookingService.Infrastructure.Clients
 {

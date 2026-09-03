@@ -1,5 +1,7 @@
 ﻿using BookingService.Application.Dto.Bookings;
+using BookingService.Application.Dto.Rooms;
 using BookingService.Application.Features.Bookings.CancelBooking;
+using BookingService.Application.Features.Bookings.CheckAvailability;
 using BookingService.Application.Features.Bookings.CompleteBooking;
 using BookingService.Application.Features.Bookings.ConfirmBooking;
 using BookingService.Application.Features.Bookings.CreateBooking;
@@ -17,6 +19,20 @@ namespace BookingService.Api.Controllers
         public BookingsController(IMediator mediator) 
         { 
             _mediator = mediator;
+        }
+
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<AvailableRoomDto>>> AvailabilityRoom([FromQuery] CheckAvailabilityDto dto)
+        {
+            var query = new CheckAvailabilityQuery(
+                Date: dto.Date,
+                StartTime: dto.StartTime,
+                EndTime: dto.EndTime,
+                Attendees: dto.Attendees
+            );
+
+            var availabilities = await _mediator.Send(query);
+            return Ok(availabilities);
         }
 
         [HttpPost]

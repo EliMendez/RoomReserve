@@ -21,9 +21,9 @@ namespace RoomService.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<RoomDto>>> GetRooms()
+        public async Task<ActionResult<IEnumerable<RoomDto>>> GetRooms([FromQuery] int? minimumCapacity = null)
         {
-            var rooms = await _mediator.Send(new GetActiveRoomsQuery());
+            var rooms = await _mediator.Send(new GetActiveRoomsQuery(minimumCapacity));
             return Ok(rooms);
         }
 

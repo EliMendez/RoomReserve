@@ -1,4 +1,5 @@
 ﻿using BookingService.Application.Interfaces;
+using BookingService.Application.Interfaces.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;

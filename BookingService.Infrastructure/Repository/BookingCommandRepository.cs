@@ -1,4 +1,4 @@
-﻿using BookingService.Application.Interfaces;
+﻿using BookingService.Application.Interfaces.Repository;
 using BookingService.Domain.Entities;
 using BookingService.Domain.Enums;
 using BookingService.Infrastructure.Data;
@@ -17,6 +17,17 @@ namespace BookingService.Infrastructure.Repository
         public BookingCommandRepository(AppDbContext context)
         {
             _context = context;
+        }
+
+        public async Task<IEnumerable<Booking>> GetAvailabilityAsync(
+            int roomId, 
+            DateOnly startDate, 
+            DateOnly endDate, 
+            int attendees
+        ) {
+            return await _context.Bookings
+                .Where(x => x.RoomId == roomId && x.BookingDate >= startDate && x.BookingDate <= endDate)
+                .ToListAsync();
         }
 
         public async Task<Booking?> GetByIdAsync(int bookingId)

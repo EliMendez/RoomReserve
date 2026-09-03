@@ -19,7 +19,7 @@ namespace RoomService.Infrastructure.Repository.Rooms
             _connection = connection;
         }
 
-        public async Task<IEnumerable<RoomDto>> GetActiveRoomsAsync()
+        public async Task<IEnumerable<RoomDto>> GetActiveRoomsAsync(int? minimumCapacity = null)
         {
             const string sql = """
                 SELECT 
@@ -31,11 +31,11 @@ namespace RoomService.Infrastructure.Repository.Rooms
                     Status
                 FROM Rooms
                 WHERE
-                    Status = 'ACTIVE'
+                    Status = 'ACTIVE' AND (@MinimumCapacity IS NULL OR Capacity >= @MinimumCapacity)
                 ORDER BY RoomId DESC;
                 """;
 
-            return await _connection.QueryAsync<RoomDto>(sql);
+            return await _connection.QueryAsync<RoomDto>(sql, new { MinimumCapacity = minimumCapacity});
         }
 
         public async Task<RoomDto?> GetByIdAsync(int roomId)

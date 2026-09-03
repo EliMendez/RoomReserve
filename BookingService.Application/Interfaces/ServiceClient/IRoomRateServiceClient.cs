@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BookingService.Application.Interfaces
+namespace BookingService.Application.Interfaces.ServiceClient
 {
-    public interface IRoomServiceClient
+    public interface IRoomRateServiceClient
     {
-        Task<RoomDto?> GetRoomByIdAsync(int roomId);
+        Task<IEnumerable<RoomRateDto>> GetRoomRatesAsync(int roomId);
     }
 }

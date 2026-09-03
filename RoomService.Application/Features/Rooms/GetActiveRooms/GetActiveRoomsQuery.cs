@@ -8,5 +8,5 @@ using System.Threading.Tasks;
 
 namespace RoomService.Application.Features.Rooms.GetActiveRooms
 {
-    public record GetActiveRoomsQuery() : IRequest<IEnumerable<RoomDto>>;
+    public record GetActiveRoomsQuery(int? MinimumCapacity = null) : IRequest<IEnumerable<RoomDto>>;
 }

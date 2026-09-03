@@ -9,7 +9,7 @@ namespace RoomService.Application.Interfaces.Rooms
 {
     public interface IRoomQueryRepository
     {
-        Task<IEnumerable<RoomDto>> GetActiveRoomsAsync();
+        Task<IEnumerable<RoomDto>> GetActiveRoomsAsync(int? minimumCapacity = null);
         Task<RoomDto?> GetByIdAsync(int roomId);
         Task<bool> ExistsById(int roomId);
     }

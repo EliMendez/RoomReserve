@@ -1,7 +1,12 @@
 using BookingService.Application.Behaviors;
+using BookingService.Application.Features.Bookings.CheckAvailability;
 using BookingService.Application.Features.Bookings.CreateBooking;
 using BookingService.Application.Interfaces;
+using BookingService.Application.Interfaces.Repository;
+using BookingService.Application.Interfaces.Service;
+using BookingService.Application.Interfaces.ServiceClient;
 using BookingService.Application.Mapping;
+using BookingService.Application.Service;
 using BookingService.Infrastructure.Clients;
 using BookingService.Infrastructure.Data;
 using BookingService.Infrastructure.Repository;
@@ -44,13 +49,17 @@ builder.Services.AddDbContext<AppDbContext>(options =>
         builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // Dapper
-
+builder.Services.AddScoped<IDbConnection>(options =>
+    new SqlConnection(
+        builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // Unit of Work
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 // Repositories
 builder.Services.AddScoped<IBookingCommandRepository, BookingCommandRepository>();
+builder.Services.AddScoped<IBookingQueryRepository, BookingQueryRepository>();
+builder.Services.AddScoped<IAvailabilityBookingService, AvailabilityBookingService>();
 
 // RoomService Client
 builder.Services.AddHttpClient<IRoomServiceClient, RoomServiceClient>(client =>

@@ -20,7 +20,7 @@ namespace RoomService.Application.Features.Rooms.GetActiveRooms
 
         public async Task<IEnumerable<RoomDto>> Handle(GetActiveRoomsQuery request, CancellationToken cancellationToken)
         {
-            var rooms = await _roomQueryRepository.GetActiveRoomsAsync();
+            var rooms = await _roomQueryRepository.GetActiveRoomsAsync(request.MinimumCapacity);
             return rooms;
         }
     }

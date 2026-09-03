@@ -1,5 +1,4 @@
-﻿using BookingService.Application.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http.Json;
@@ -7,6 +6,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using BookingService.Application.Dto.Rooms;
+using BookingService.Application.Interfaces.ServiceClient;
 
 namespace BookingService.Infrastructure.Clients
 {
@@ -30,6 +30,16 @@ namespace BookingService.Infrastructure.Clients
 
             return await response.Content
                 .ReadFromJsonAsync<RoomDto>();
+        }
+
+        public async Task<IEnumerable<RoomDto>> GetActiveRoomsAsync(int minimumCapacity)
+        {
+            var response = await _httpClient.GetAsync($"api/rooms?MinimumCapacity={minimumCapacity}");
+
+            response.EnsureSuccessStatusCode();
+
+            return await response.Content
+                .ReadFromJsonAsync<IEnumerable<RoomDto>>();
         }
     }
 }
