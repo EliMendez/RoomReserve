@@ -13,6 +13,7 @@ namespace BookingService.Application.Features.Bookings.CreateBooking
         DateOnly BookingDate,
         TimeOnly StartTime,
         TimeOnly EndTime,
-        int NumberOfAttendees
+        int NumberOfAttendees,
+        string Email
     ): IRequest<int>;
 }

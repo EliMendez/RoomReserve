@@ -43,7 +43,8 @@ namespace BookingService.Api.Controllers
                 BookingDate: bookingDto.BookingDate,
                 StartTime: bookingDto.StartTime,
                 EndTime: bookingDto.EndTime,
-                NumberOfAttendees: bookingDto.NumberOfAttendees
+                NumberOfAttendees: bookingDto.NumberOfAttendees,
+                Email: bookingDto.Email
             );
 
             var bookingId = await _mediator.Send(command);

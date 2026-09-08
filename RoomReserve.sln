@@ -9,21 +9,27 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RoomService", "RoomService"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BookingService", "BookingService", "{BFA94F77-A3BC-40F9-91C9-3B4A927D25BD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoomService.Api", "RoomService.Api\RoomService.Api.csproj", "{A08F65EB-FD7E-48A4-83D8-A88518F80743}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RoomService.Api", "RoomService.Api\RoomService.Api.csproj", "{A08F65EB-FD7E-48A4-83D8-A88518F80743}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookingService.Api", "BookingService.Api\BookingService.Api.csproj", "{896A2E83-F9F1-4854-9654-6563A0D6460F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookingService.Api", "BookingService.Api\BookingService.Api.csproj", "{896A2E83-F9F1-4854-9654-6563A0D6460F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoomService.Domain", "RoomService.Domain\RoomService.Domain.csproj", "{BE86077D-F7C8-423E-A2CC-CD99E44EDB97}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RoomService.Domain", "RoomService.Domain\RoomService.Domain.csproj", "{BE86077D-F7C8-423E-A2CC-CD99E44EDB97}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoomService.Infrastructure", "RoomService.Infrastructure\RoomService.Infrastructure.csproj", "{5F7FF722-12B1-45D1-8C08-F7A5CDEFC8B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RoomService.Infrastructure", "RoomService.Infrastructure\RoomService.Infrastructure.csproj", "{5F7FF722-12B1-45D1-8C08-F7A5CDEFC8B3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoomService.Application", "RoomService.Application\RoomService.Application.csproj", "{673CE80C-663E-4023-9335-7DD8A7E061E3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RoomService.Application", "RoomService.Application\RoomService.Application.csproj", "{673CE80C-663E-4023-9335-7DD8A7E061E3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookingService.Domain", "BookingService.Domain\BookingService.Domain.csproj", "{295EBF2B-D111-46D8-9623-4E6CAB040964}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookingService.Domain", "BookingService.Domain\BookingService.Domain.csproj", "{295EBF2B-D111-46D8-9623-4E6CAB040964}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookingService.Application", "BookingService.Application\BookingService.Application.csproj", "{0C340BB1-33FD-4F39-9A14-0E0E84149D1C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookingService.Application", "BookingService.Application\BookingService.Application.csproj", "{0C340BB1-33FD-4F39-9A14-0E0E84149D1C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookingService.Infrastructure", "BookingService.Infrastructure\BookingService.Infrastructure.csproj", "{EFE6018E-C9FB-4B2F-B964-79868DE75E2A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookingService.Infrastructure", "BookingService.Infrastructure\BookingService.Infrastructure.csproj", "{EFE6018E-C9FB-4B2F-B964-79868DE75E2A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RoomReserve.Contracts", "RoomReserve.Contracts\RoomReserve.Contracts.csproj", "{606548B9-2A36-43F2-83F5-5729C1B4B2F4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EmailService", "EmailService", "{3E473E75-DC3B-4314-96F1-133C5F6FB00A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmailService", "EmailService\EmailService.csproj", "{0C693751-ED1D-4804-B20A-572476A5A67D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +69,14 @@ Global
 		{EFE6018E-C9FB-4B2F-B964-79868DE75E2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EFE6018E-C9FB-4B2F-B964-79868DE75E2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EFE6018E-C9FB-4B2F-B964-79868DE75E2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{606548B9-2A36-43F2-83F5-5729C1B4B2F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{606548B9-2A36-43F2-83F5-5729C1B4B2F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{606548B9-2A36-43F2-83F5-5729C1B4B2F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{606548B9-2A36-43F2-83F5-5729C1B4B2F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C693751-ED1D-4804-B20A-572476A5A67D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C693751-ED1D-4804-B20A-572476A5A67D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C693751-ED1D-4804-B20A-572476A5A67D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C693751-ED1D-4804-B20A-572476A5A67D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -78,6 +92,9 @@ Global
 		{295EBF2B-D111-46D8-9623-4E6CAB040964} = {BFA94F77-A3BC-40F9-91C9-3B4A927D25BD}
 		{0C340BB1-33FD-4F39-9A14-0E0E84149D1C} = {BFA94F77-A3BC-40F9-91C9-3B4A927D25BD}
 		{EFE6018E-C9FB-4B2F-B964-79868DE75E2A} = {BFA94F77-A3BC-40F9-91C9-3B4A927D25BD}
+		{606548B9-2A36-43F2-83F5-5729C1B4B2F4} = {0DAEDAFC-FD74-46AF-A3A3-27664225EF22}
+		{3E473E75-DC3B-4314-96F1-133C5F6FB00A} = {0DAEDAFC-FD74-46AF-A3A3-27664225EF22}
+		{0C693751-ED1D-4804-B20A-572476A5A67D} = {3E473E75-DC3B-4314-96F1-133C5F6FB00A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E9DC23C2-C8AD-4F7E-B042-C1398E1B12AF}

@@ -1,9 +1,11 @@
 ﻿using AutoMapper;
 using BookingService.Application.Interfaces;
+using BookingService.Application.Interfaces.Publisher;
 using BookingService.Application.Interfaces.ServiceClient;
 using BookingService.Domain.Entities;
 using BookingService.Domain.Enums;
 using MediatR;
+using RoomReserve.Contracts.Bookings;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,16 +19,19 @@ namespace BookingService.Application.Features.Bookings.CreateBooking
         private readonly IUnitOfWork _unitOfWork;
         private readonly IRoomServiceClient _roomServiceClient;
         private readonly IRoomRateServiceClient _roomRateServiceClient;
+        private readonly IMessagePublisher _messagePublisher;
         private readonly IMapper _mapper;
         public CreateBookingHandle(
             IUnitOfWork unitOfWork,
             IRoomServiceClient roomServiceClient,
             IRoomRateServiceClient roomRateServiceClient,
+            IMessagePublisher messagePublisher,
             IMapper mapper
         ) { 
             _unitOfWork = unitOfWork;
             _roomServiceClient = roomServiceClient;
             _roomRateServiceClient = roomRateServiceClient;
+            _messagePublisher = messagePublisher;
             _mapper = mapper;
         }
 
@@ -79,6 +84,19 @@ namespace BookingService.Application.Features.Bookings.CreateBooking
 
             await _unitOfWork.Bookings.AddAsync(booking);
             await _unitOfWork.SaveChangesAsync(cancellationToken);
+
+            var bookingCreatedEvent = new BookingCreatedEvent(
+                BookingId: booking.BookingId,
+                RoomId: booking.RoomId,
+                BookingDate: booking.BookingDate,
+                StartTime: booking.StartTime,
+                EndTime: booking.EndTime,
+                NumberOfAttendees: booking.NumberOfAttendees,
+                Total: booking.Total,
+                Email: request.Email
+            );
+
+            await _messagePublisher.PublishAsync(bookingCreatedEvent);
 
             return booking.BookingId;
         }

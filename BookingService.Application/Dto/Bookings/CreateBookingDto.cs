@@ -12,6 +12,7 @@ namespace BookingService.Application.Dto.Bookings
         DateOnly BookingDate,
         TimeOnly StartTime,
         TimeOnly EndTime,
-        int NumberOfAttendees
+        int NumberOfAttendees,
+        string Email
     );
 }
