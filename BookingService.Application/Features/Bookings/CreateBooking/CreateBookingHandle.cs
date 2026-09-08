@@ -71,7 +71,7 @@ namespace BookingService.Application.Features.Bookings.CreateBooking
                 if (startTime < endTime)
                 {
                     var duration = endTime - startTime;
-                    subtotal += (decimal)duration.TotalHours * rate.PricePerHour;
+                    subtotal += (decimal)duration.TotalHours * rate.PricePerHour * request.NumberOfAttendees;
                 }
             }
 
