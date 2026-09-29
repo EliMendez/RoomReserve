@@ -16,7 +16,7 @@ namespace EmailService.Consumers
         {
             _emailSender = emailSender;
         }
-
+        
         public async Task Consume(BookingCreatedEvent message)
         {
             var subject = $"Reserva #{message.BookingId}";

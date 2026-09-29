@@ -51,6 +51,10 @@ namespace BookingService.Infrastructure.Data
                 entity.Property(b => b.Status)
                     .HasMaxLength(10)
                     .IsRequired();
+
+                entity.Property(b => b.PaymentStatus)
+                    .HasMaxLength(10)
+                    .IsRequired();
             });
         }
     }

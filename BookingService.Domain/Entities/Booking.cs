@@ -18,5 +18,6 @@ namespace BookingService.Domain.Entities
         public decimal Subtotal { get; set; }
         public decimal Total { get; set; }
         public string Status { get; set; } = string.Empty;
+        public string PaymentStatus { get; set; } = string.Empty;
     }
 }

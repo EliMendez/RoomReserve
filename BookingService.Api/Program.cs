@@ -1,3 +1,5 @@
+using BookingService.Api.Consumers;
+using BookingService.Api.Worker;
 using BookingService.Application.Behaviors;
 using BookingService.Application.Features.Bookings.CheckAvailability;
 using BookingService.Application.Features.Bookings.CreateBooking;
@@ -76,6 +78,12 @@ builder.Services.AddHttpClient<IRoomRateServiceClient, RoomRateServiceClient>(cl
 {
     client.BaseAddress = new Uri("http://localhost:5273/");
 });
+
+// Consumer
+builder.Services.AddScoped<PaymentProcessedConsumer>();
+
+// Worker
+builder.Services.AddHostedService<Worker>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
